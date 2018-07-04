@@ -23,7 +23,7 @@ public class HelloWildFlyController {
     public String sayHello(){
         return ("Hola, SpringBoot en Wildfly!");
     }
-    
+/*    
     MedicoMockedData medicoMockedData = MedicoMockedData.getInstance();
 
     @GetMapping("/medico")
@@ -68,4 +68,5 @@ public class HelloWildFlyController {
         int medicoId = Integer.parseInt(id);
         return medicoMockedData.delete(medicoId);
     }
+*/
 }
