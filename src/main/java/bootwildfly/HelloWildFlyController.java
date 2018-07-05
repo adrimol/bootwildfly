@@ -1,6 +1,7 @@
 package bootwildfly;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class HelloWildFlyController {
     }
     
     
-    @RequestMapping("/medico")
+    @GetMapping("/medico")
     public String index(){
         return ("Listado medicos");
     }
