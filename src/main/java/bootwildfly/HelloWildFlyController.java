@@ -21,8 +21,8 @@ public class HelloWildFlyController {
     }
     
     
-    @GetMapping("/medico")
-    public String listado(){
+    @RequestMapping("/medico")
+    public String index(){
         return ("Listado medicos");
     }
 }
