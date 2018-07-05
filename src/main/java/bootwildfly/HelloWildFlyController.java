@@ -22,12 +22,19 @@ public class HelloWildFlyController {
         return ("Hola, SpringBoot en Wildfly!");
     }
     
+    MedicoMockedData medicoMockedData = MedicoMockedData.getInstance();
     
     @RequestMapping("/medico")
     public String index(){
-        List<Medico> lstMedicos = new ArrayList<Medico>();
+        /*List<Medico> lstMedicos = new ArrayList<Medico>();
         Medico med = new Medico(0, "Pedro", "Perez", 26, "Gerontologia");
         lstMedicos.add(med);
-        return ("Cantidad medicos: "+lstMedicos.size());
+        return ("Cantidad medicos: "+lstMedicos.size());*/
+        List<Medico> lstMedicos = medicoMockedData.fetchMedicos();
+        String temp = "";
+        for(Medico item:lstMedicos){
+            temp += item.getNombres()+item.getApellidos()+item.getEspecialidad()+"<br>";
+        }
+        return temp;
     }
 }
