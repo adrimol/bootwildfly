@@ -2,6 +2,7 @@ package bootwildfly;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,15 +27,19 @@ public class HelloWildFlyController {
     
     @RequestMapping("/medico")
     public String index(){
-        /*List<Medico> lstMedicos = new ArrayList<Medico>();
-        Medico med = new Medico(0, "Pedro", "Perez", 26, "Gerontologia");
-        lstMedicos.add(med);
-        return ("Cantidad medicos: "+lstMedicos.size());*/
         List<Medico> lstMedicos = medicoMockedData.fetchMedicos();
         String temp = "";
         for(Medico item:lstMedicos){
             temp += item.getNombres()+item.getApellidos()+item.getEspecialidad()+"<br>";
         }
+        temp+="<br>Cantidad medicos: "+lstMedicos.size();
         return temp;
+    }
+    
+    
+    @RequestMapping("/medico/{id}")
+    public String show(@PathVariable String id){
+        int medicoId = Integer.parseInt(id);
+        return "medicoId: "+medicoId; //medicoMockedData.getMedicoById(medicoId);
     }
 }
