@@ -22,7 +22,7 @@ public class HelloWildFlyController {
     
     
     @GetMapping("/medico")
-    public String index(){
+    public String listado(){
         return ("Listado medicos");
     }
 }
