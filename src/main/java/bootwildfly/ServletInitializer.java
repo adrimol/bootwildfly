@@ -5,16 +5,10 @@
  */
 package bootwildfly;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-
 /**
  *
  * @author ADRIAN MOLINA
  */
-public class ServletInitializer extends SpringBootServletInitializer {
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
+public class ServletInitializer  {
+    
 }
