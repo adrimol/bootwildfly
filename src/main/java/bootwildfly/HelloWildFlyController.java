@@ -40,8 +40,9 @@ public class HelloWildFlyController {
     
     @RequestMapping("/medico/{id}")
     @ResponseBody
-    public String show(@PathVariable String id){
+    public Medico show(@PathVariable String id){
         int medicoId = Integer.parseInt(id);
-        return "medicoId: "+medicoId; //medicoMockedData.getMedicoById(medicoId);
+        //return "medicoId: "+medicoId; //
+        return medicoMockedData.getMedicoById(medicoId);
     }
 }
