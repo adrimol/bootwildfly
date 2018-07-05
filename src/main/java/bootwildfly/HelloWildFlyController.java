@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -38,6 +39,7 @@ public class HelloWildFlyController {
     
     
     @RequestMapping("/medico/{id}")
+    @ResponseBody
     public String show(@PathVariable String id){
         int medicoId = Integer.parseInt(id);
         return "medicoId: "+medicoId; //medicoMockedData.getMedicoById(medicoId);
