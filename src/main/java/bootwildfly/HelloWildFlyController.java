@@ -1,8 +1,11 @@
 package bootwildfly;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 public class HelloWildFlyController {
@@ -22,6 +25,9 @@ public class HelloWildFlyController {
     
     @RequestMapping("/medico")
     public String index(){
-        return ("Listado de medicos");
+        List<Medico> lstMedicos = new ArrayList<Medico>();
+        Medico med = new Medico(0, "Pedro", "Perez", 26, "Gerontologia");
+        lstMedicos.add(med);
+        return ("Cantidad medicos: "+lstMedicos.size());
     }
 }
