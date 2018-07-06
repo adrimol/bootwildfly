@@ -48,7 +48,7 @@ public class HelloWildFlyController {
         return medicoMockedData.getMedicoById(medicoId);
     }
    
-    @RequestMapping("/medico/search/{text}")
+    @RequestMapping("/medico/buscar/{text}")
     @ResponseBody
     public List<Medico> search(@PathVariable String text){
         String searchTerm = (String)text;
@@ -59,13 +59,24 @@ public class HelloWildFlyController {
     @RequestMapping("/medico/crear/{data}")
     public Medico create(@PathVariable String data){
         String datos[] = data.split("-");
-        int id = Integer.parseInt(datos[0]);
+        int medicoId = Integer.parseInt(datos[0]);
         String nombres = datos[1];
         String apellidos = datos[2];
         int edad = Integer.parseInt(datos[3]);
         String especialidad = datos[4];
         //return data.toString();
-        return medicoMockedData.createMedico(id, nombres, apellidos, edad, especialidad);
+        return medicoMockedData.createMedico(medicoId, nombres, apellidos, edad, especialidad);
+    }
+    
+     @RequestMapping("/medico/actualizar/{data}")
+    public Medico update(@PathVariable String data){
+        String datos[] = data.split("-");
+        int medicoId = Integer.parseInt(datos[0]);
+        String nombres = datos[1];
+        String apellidos = datos[2];
+        int edad = Integer.parseInt(datos[3]);
+        String especialidad = datos[4];
+        return medicoMockedData.updateMedico(medicoId, nombres, apellidos, edad, especialidad);
     }
     
     

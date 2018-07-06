@@ -3,14 +3,36 @@
         To test out the sample REST endpoint, hit /hello
         <br>
         Para probar el endpoint ejemplo REST, hit /hola
+        <br><br>
+        <b>Operaciones disponibles:</b>
         <br>
         Listado de medicos: /medico
-        <br>
+        <br><br>
         Buscar por ID medico: /medico/ID
         <br>
-        Buscar por palabra clave: /medico/search/KEYWORD
+        ID: Identificador del registro
+        <br><br>
+        Buscar por palabra clave: /medico/buscar/KEYWORD
         <br>
-        Version: 1.67
+        KEYWORD: Palabra clave que puede ser nombre, apellido o especialidad.
+        <br><br>
+        Crear registro: /medico/crear/REGISTRO
+        <br>
+        REGISTRO:  ID-Nombres-Apellidos-Edad-Especialidad
+        <br>
+        Ejemplo: /medico/crear/6-Pedro-Perez-45-Traumatologia
+        <br><br>
+        Actualizar registro: /medico/actualizar/REGISTRO
+        <br>
+        REGISTRO: ID-Nombres-Apellidos-Edad-Especialidad
+        <br>
+        Ejemplo: /medico/actualizar/6-Pedro-Perez-36-Gastroenterologia
+        <br><br>
+        Borrar por ID medico: /medico/borrar/ID
+        <br>
+        ID: Identificador del registro
+        <br><br>
+        Version: 1.68
     </body>
 </html>
 
