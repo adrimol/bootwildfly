@@ -58,7 +58,8 @@ public class MedicoMockedData {
         List<Medico> searchedMedicos = new ArrayList<Medico>();
         for(Medico b: medicos) {
             if(b.getNombres().toLowerCase().contains(searchTerm.toLowerCase()) ||
-               b.getApellidos().toLowerCase().contains(searchTerm.toLowerCase())) {
+               b.getApellidos().toLowerCase().contains(searchTerm.toLowerCase()) ||
+               b.getEspecialidad().toLowerCase().contains(searchTerm.toLowerCase())) {
                 searchedMedicos.add(b);
             }
         }
