@@ -56,15 +56,23 @@ public class HelloWildFlyController {
     }
     
     
-    @RequestMapping("/medico/crear/")
-    public Medico create(@PathVariable String body){
-        String data[] = body.split("-");
-        int id = Integer.parseInt(data[0]);
-        String nombres = data[1];
-        String apellidos = data[2];
-        int edad = Integer.parseInt(data[3]);
-        String especialidad = data[4];
+    @RequestMapping("/medico/crear/{data}")
+    public Medico create(@PathVariable String data){
+        String datos[] = data.split("-");
+        int id = Integer.parseInt(datos[0]);
+        String nombres = datos[1];
+        String apellidos = datos[2];
+        int edad = Integer.parseInt(datos[3]);
+        String especialidad = datos[4];
+        //return data.toString();
         return medicoMockedData.createMedico(id, nombres, apellidos, edad, especialidad);
+    }
+    
+    
+    @RequestMapping("medico/borrar/{id}")
+    public boolean delete(@PathVariable String id){
+        int medicoId = Integer.parseInt(id);
+        return medicoMockedData.delete(medicoId);
     }
     
 }
