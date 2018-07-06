@@ -47,12 +47,13 @@ public class HelloWildFlyController {
         //return "medicoId: "+medicoId; //
         return medicoMockedData.getMedicoById(medicoId);
     }
-    /*
-    @PostMapping("/medico/search")
-    public List<Medico> search(@RequestBody Map<String, String> body){
-        String searchTerm = body.get("text");
+   
+    @RequestMapping("/medico/search/{text}")
+    @ResponseBody
+    public List<Medico> search(@PathVariable String text){
+        String searchTerm = (String)text;
         return medicoMockedData.searchMedicos(searchTerm);
     }
-    */
+    
     
 }
