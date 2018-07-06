@@ -2,7 +2,10 @@ package bootwildfly;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,14 +30,15 @@ public class HelloWildFlyController {
     MedicoMockedData medicoMockedData = MedicoMockedData.getInstance();
     
     @RequestMapping("/medico")
-    public String index(){
+    @ResponseBody
+    public List<Medico> index(){
         List<Medico> lstMedicos = medicoMockedData.fetchMedicos();
-        String temp = "";
+        /*String temp = "";
         for(Medico item:lstMedicos){
             temp += item.getNombres()+item.getApellidos()+item.getEspecialidad()+"<br>";
         }
-        temp+="<br>Cantidad medicos: "+lstMedicos.size();
-        return temp;
+        temp+="<br>Cantidad medicos: "+lstMedicos.size();*/
+        return lstMedicos;
     }
     
     
@@ -45,4 +49,12 @@ public class HelloWildFlyController {
         //return "medicoId: "+medicoId; //
         return medicoMockedData.getMedicoById(medicoId);
     }
+    /*
+    @PostMapping("/medico/search")
+    public List<Medico> search(@RequestBody Map<String, String> body){
+        String searchTerm = body.get("text");
+        return medicoMockedData.searchMedicos(searchTerm);
+    }
+    */
+    
 }
